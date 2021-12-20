@@ -1,0 +1,271 @@
+:root {
+  --background: rgba(230, 231, 164, 0.815);
+  --titleColor: rgba(245, 84, 9, 0.733);
+  --letterColor: rgba(247, 125, 68, 0.712);
+
+  --letterHover: rgba(255, 0, 0, 0.548);
+  --letterBackHover: rgba(255, 0, 0, 0.26);
+
+  --topicFont: Rubik;
+  --letterFont: ubuntu;
+}
+#test {
+  width: fit-content;
+  visibility: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  justify-content: space-between;
+}
+#topic {
+  font-family: var(--topicFont);
+  color: var(--titleColor);
+  justify-self: flex-start;
+  width: fit-content;
+  align-self: center;
+}
+span {
+  font-size: 12px;
+}
+#keys {
+  font-family: var(--letterFont);
+  font-size: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 475px;
+  align-self: center;
+  margin-bottom: 50px;
+  visibility: hidden;
+}
+.key {
+  border: 1px solid var(--letterHover);
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--letterColor);
+  background: none;
+  /*box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.75),0px 0px 5px -1px rgba(0,0,0,0.75)inset;*/
+}
+.keyYes {
+  opacity: 0;
+  cursor: default;
+}
+.keyNo {
+  animation: no 1s;
+}
+@keyframes no {
+  0% {
+    background-color: var(--background);
+  }
+  25% {
+    background-color: red;
+  }
+  50% {
+    background-color: var(--background);
+  }
+  75% {
+    background-color: red;
+  }
+  100% {
+    background-color: var(--background);
+  }
+}
+.key:hover {
+  background-color: var(--letterColor);
+  color: var(--background);
+}
+.guessingWord {
+  width: 475px;
+  height: 350px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+.blankDiv {
+  width: fit-content;
+  height: fit-content;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-bottom: 100px;
+  align-self: flex-end;
+  margin-left: 20px;
+}
+.blankBtn {
+  background: none;
+  font-size: 40px;
+  border: none;
+  color: var(--letterColor);
+}
+#lives {
+  font-family: ubuntu;
+  color: var(--letterColor);
+}
+#start {
+  background: none;
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid var(--letterColor);
+  color: var(--titleColor);
+  background-color: var(--letterBackHover);
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+}
+ol {
+  padding-left: 30px;
+  color: var(--letterColor);
+}
+li {
+  margin-top: 20px;
+}
+#howToPlay {
+  visibility: visible;
+  background-color: rgba(245, 84, 9, 0.281);
+  color: var(--titleColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  position: fixed;
+  bottom: 50px;
+  justify-content: space-around;
+  font-family: Rubik;
+  border-radius: 20px;
+  height: 400px;
+  padding: 10px;
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.75),
+    1px 0px 5px -1px rgba(0, 0, 0, 0.75) inset;
+}
+#lives > span {
+  font-size: inherit;
+}
+#lives {
+  visibility: hidden;
+  position: fixed;
+}
+.end {
+  background-color: rgba(236, 159, 124, 0.952);
+  width: 400px;
+  height: 300px;
+  border: 1px solid var(--letterColor);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: ubuntu;
+  font-size: 25px;
+  color: var(--titleColor);
+  left: 35%;
+  top: 40%;
+  visibility: hidden;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  line-height: 2em;
+}
+#endTitle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#btnE {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  height: 200px;
+  width: 100%;
+}
+.endBtn {
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--background);
+  border: none;
+  color: var(--letterColor);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 40px;
+}
+.fas {
+  font-size: 50px;
+  color: var(--letterBackHover);
+}
+/* responsive*/
+/*phone*/
+@media screen and (max-width: 767px) {
+  main {
+    max-width: fit-content;
+    height: 100vh;
+    background-color: var(--background);
+    position: fixed;
+  }
+  #howToPlay {
+    bottom: 50px;
+    width: 275px;
+    height: fit-content;
+  }
+  .guessingWord {
+    max-width: 200px;
+    height: 350px;
+  }
+  .blankDiv {
+    width: 20px;
+    height: fit-content;
+    margin-bottom: 90px;
+    margin-left: 8px;
+  }
+  #keys {
+    font-size: 10px;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    max-width: fit-content;
+  }
+  .end {
+    width: 200px;
+    height: 150px;
+    font-size: 10px;
+    left: 23.5%;
+  }
+  .endBtn {
+    width: fit-content;
+    height: fit-content;
+    font-size: 15px;
+  }
+  .fas {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 380px) {
+  #keys {
+    grid-gap: 10px;
+    max-width: fit-content;
+    height: 150px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .end {
+    width: 200px;
+    height: 150px;
+    font-size: 10px;
+    left: 23.5%;
+  }
+}

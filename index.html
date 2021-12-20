@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="game.css" />
+    <script
+      src="https://kit.fontawesome.com/2581aedc63.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <title>Guess The Word</title>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <h2 id="topic">Guess The Word <span>by Anthony</span></h2>
+
+        <div class="guessingWord" id="guessingWord">
+          <p id="lives">Lives left : <span id="live">7</span></p>
+          <!--  <div class="blankDiv" >
+<img src="line.png" alt="blank space" id="blank" class="line">
+        </div> -->
+        </div>
+        <div id="howToPlay">
+          <h2>How to play</h2>
+          <ol>
+            <li>Choose a letter you think the missing word contains.</li>
+            <li>You have 7 lives</li>
+            <li>You lose 1 life everytime you guess wrong</li>
+            <li>When you run out of lives, YOU LOSE !!!</li>
+            <li>Don't worry, you can always try again</li>
+          </ol>
+
+          <button id="start">Start</button>
+        </div>
+        <div id="win" class="end win">
+          <h3 id="endTitle">
+            Winner Winner <br />
+            Chicken Dinner!!
+          </h3>
+          <i class="fas fa-trophy"></i>
+          <span id="span"></span>
+          <div id="btnE">
+            <button class="endBtn" id="playAgain">Play Again</button>
+          </div>
+        </div>
+        <!--  <div id="lose" class="end lose">
+            <h3 class="endTitle">Ohhh no, You are out of lives!!</h3>
+            <button id="endBtn">Home</button><button id="endBtn">Play Again</button>
+        </div>-->
+        <div id="keys">
+          <button name="a" class="key">A</button>
+          <button name="b" class="key">B</button>
+          <button name="c" class="key">C</button>
+          <button name="d" class="key">D</button>
+          <button name="e" class="key">E</button>
+          <button name="f" class="key">F</button>
+          <button name="g" class="key">G</button>
+          <button name="h" class="key">H</button>
+          <button name="i" class="key">I</button>
+          <button name="j" class="key">J</button>
+          <button name="k" class="key">K</button>
+          <button name="l" class="key">L</button>
+          <button name="m" class="key">M</button>
+          <button name="n" class="key">N</button>
+          <button name="o" class="key">O</button>
+          <button name="p" class="key">P</button>
+          <button name="q" class="key">Q</button>
+          <button name="r" class="key">R</button>
+          <button name="s" class="key">S</button>
+          <button name="t" class="key">T</button>
+          <button name="u" class="key">U</button>
+          <button name="v" class="key">V</button>
+          <button name="w" class="key">W</button>
+          <button name="x" class="key">X</button>
+          <button name="y" class="key">Y</button>
+          <button name="z" class="key">Z</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
