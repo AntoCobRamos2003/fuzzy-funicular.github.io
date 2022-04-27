@@ -1,13 +1,25 @@
 :root {
   --background: rgba(230, 231, 164, 0.815);
   --titleColor: rgba(245, 84, 9, 0.733);
-  --letterColor: rgba(247, 125, 68, 0.712);
+  --letterColor: rgba(247, 125, 68);
 
   --letterHover: rgba(255, 0, 0, 0.548);
   --letterBackHover: rgba(255, 0, 0, 0.26);
 
   --topicFont: Rubik;
   --letterFont: ubuntu;
+
+  --card: rgba(245, 84, 9, 0.281);
+}
+.darkMode {
+  --background: rgb(0, 0, 0);
+  --titleColor: rgb(255, 255, 255);
+  --letterColor: rgba(255, 255, 255, 0.658);
+
+  --letterHover: rgba(102, 93, 93, 0.425);
+  --letterBackHover: rgba(230, 0, 0, 0.26);
+
+  --card: rgb(70, 66, 66);
 }
 #test {
   width: fit-content;
@@ -69,24 +81,48 @@ span {
   opacity: 0;
   cursor: default;
 }
-.keyNo {
-  animation: no 1s;
-}
-@keyframes no {
+@keyframes keyYesAni {
   0% {
-    background-color: var(--background);
+    transform: translateY(-5px);
+    opacity: 1;
   }
   25% {
-    background-color: red;
+    transform: translateY(-10px);
+    opacity: 0.8;
   }
   50% {
-    background-color: var(--background);
+    transform: translateY(-15px);
+    opacity: 0.5;
   }
   75% {
-    background-color: red;
+    transform: translateY(-20px);
+    opacity: 0.2;
   }
   100% {
-    background-color: var(--background);
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+}
+@keyframes ans {
+  0% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(20px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(15px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(5px);
+    opacity: 1;
   }
 }
 .key:hover {
@@ -116,6 +152,7 @@ span {
   font-size: 40px;
   border: none;
   color: var(--letterColor);
+  text-align: center;
 }
 #lives {
   font-family: ubuntu;
@@ -127,7 +164,7 @@ span {
   width: fit-content;
   border: 1px solid var(--letterColor);
   color: var(--titleColor);
-  background-color: var(--letterBackHover);
+  background-color: var(--background);
   cursor: pointer;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
@@ -141,7 +178,7 @@ li {
 }
 #howToPlay {
   visibility: visible;
-  background-color: rgba(245, 84, 9, 0.281);
+  background-color: var(--card);
   color: var(--titleColor);
   display: flex;
   flex-direction: column;
@@ -165,7 +202,7 @@ li {
   position: fixed;
 }
 .end {
-  background-color: rgba(236, 159, 124, 0.952);
+  background-color: var(--card);
   width: 400px;
   height: 300px;
   border: 1px solid var(--letterColor);
@@ -208,8 +245,53 @@ li {
 }
 .fas {
   font-size: 50px;
-  color: var(--letterBackHover);
+  color: var(--letterBackHver);
 }
+#update {
+  position: fixed;
+  right: 50px;
+  cursor: pointer;
+  font-family: Rubik;
+  color: var(--titleColor);
+}
+#new {
+  position: fixed;
+  right: 10px;
+  top: 50px;
+  border-radius: 20px;
+  cursor: default;
+  font-family: Ubuntu;
+  color: var(--letterColor);
+  background-color: var(--card);
+  width: 200px;
+  visibility: hidden;
+}
+@keyframes in {
+  from {
+    right: -400px;
+  }
+  to {
+    right: 10px;
+  }
+}
+@keyframes out {
+  from {
+    right: 10px;
+  }
+  to {
+    right: -400px;
+  }
+}
+#version {
+  margin: 0px;
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  font-size: 12px;
+  color: var(--letterColor);
+  cursor: default;
+}
+
 /* responsive*/
 /*phone*/
 @media screen and (max-width: 767px) {
@@ -218,6 +300,26 @@ li {
     height: 100vh;
     background-color: var(--background);
     position: fixed;
+  }
+  #update {
+    right: 50px;
+    top: 50px;
+    z-index: 100;
+  }
+  #new {
+    right: 35px;
+    top: 90px;
+    width: 130px;
+    font-size: 12px;
+    z-index: 100;
+  }
+  @keyframes in {
+    from {
+      right: -400px;
+    }
+    to {
+      right: 35px;
+    }
   }
   #howToPlay {
     bottom: 50px;
@@ -232,13 +334,14 @@ li {
     width: 20px;
     height: fit-content;
     margin-bottom: 90px;
-    margin-left: 8px;
+    margin-left: 10px;
   }
   #keys {
     font-size: 10px;
     grid-gap: 5px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     max-width: fit-content;
+    margin-bottom: 80px;
   }
   .end {
     width: 200px;
@@ -261,6 +364,7 @@ li {
     max-width: fit-content;
     height: 150px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 80px;
   }
   .end {
     width: 200px;
