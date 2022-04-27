@@ -20,18 +20,26 @@ console.log(rNum);
 
 let whatsNew = document.getElementById("update");
 let box = document.getElementById("new");
+window.onload = function () {
+  whatsNew.style.animation = "update1 1s";
+  setTimeout(() => {
+    whatsNew.style.animation = null;
+  }, 2000);
+};
+
 whatsNew.addEventListener("click", function () {
   if (box.style.visibility == "visible") {
     box.style.animation = "out 1s";
+    whatsNew.style.animation = "update 5s infinite";
     setTimeout(() => {
       box.style.visibility = "hidden";
     }, 1000);
   } else {
     box.style.animation = "in 1s";
     box.style.visibility = "visible";
+    whatsNew.style.animation = "update1";
   }
 });
-
 //start game
 let startBtn = document.getElementById("start");
 let howTo = document.getElementById("howToPlay");
@@ -72,7 +80,7 @@ const btn = document.querySelectorAll(".key");
 const myFun = () => {
   for (i = 0; i < btn.length; i++) {
     const ok = btn[i].addEventListener("click", function () {
-      console.log(this.name);
+      console.log(this.name.toUpperCase());
       console.log(answer.includes(this.name));
       if (letterInWord.includes(this.name)) {
         let element = this;
@@ -106,7 +114,7 @@ const myFun = () => {
             const text = document.getElementById("endTitle");
             const loseSpan = document.getElementById("span");
             document.querySelector(".fas").className = "fas fa-heart-broken";
-            loseSpan.innerText = "The word was " + answer;
+            loseSpan.innerText = `The word was ${answer.toUpperCase()} !`;
             text.innerHTML = "Ohhh no <br> You are out of lives!!";
             card.style.visibility = "visible";
           }, 500);
