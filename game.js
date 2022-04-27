@@ -19,16 +19,16 @@ console.log(rNum);
 //console.log(letterInWord);
 
 let whatsNew = document.getElementById("update");
+let box = document.getElementById("new");
 whatsNew.addEventListener("click", function () {
-  let box = document.getElementById("new");
-  if (box.style.visibility == "hidden") {
-    box.style.visibility = "visible";
-    box.style.animation = "in 1s";
-  } else {
+  if (box.style.visibility == "visible") {
     box.style.animation = "out 1s";
     setTimeout(() => {
       box.style.visibility = "hidden";
     }, 1000);
+  } else {
+    box.style.animation = "in 1s";
+    box.style.visibility = "visible";
   }
 });
 
