@@ -1,20 +1,36 @@
 const words =
-  "fragile strange donate overflow spiritual careful operate shocking melted scared coordinated possible glorious thoughtful afterthought distribute withdraw obedient rhythm jumbled terrific family tightfisted kittens direction tremendous tested weather screeching enormous domineering righteous necessary progress obsolete accessible install guitar helpful cultured certain complain wanting adorable sweltering ";
-
+  "fragile strange belize money instagram computer science flower cactus donate overflow spiritual careful operate shocking melted scared coordinated presbyterian cornerstone possible justice glorious thoughtful afterthought distribute withdraw corozal orange belmopan tapir obedient rhythm music jumbled terrific family window tightfisted kittens direction tremendous november tested weather screeching enormous domineering righteous necessary progress obsolete accessible install guitar helpful cultured certain complain wanting adorable sweltering ";
 const wordArr = words.split(" ");
-const answer = wordArr[Math.round(Math.random() * wordArr.length)];
+let rNum = Math.round(Math.random() * wordArr.length);
+const answer = wordArr[rNum];
 const letterInWord = answer.split("");
 const numOfBlanks = answer.length;
-const lastLetter = answer.length - 1;
 let lives = document.getElementById("live").innerHTML;
 
 let answers = [];
 let newArr = [];
+
 //console log for test
+
 console.log(answer);
 console.log(numOfBlanks);
-console.log(letterInWord);
-console.log(lastLetter);
+console.log(rNum);
+//console.log(letterInWord);
+
+let whatsNew = document.getElementById("update");
+whatsNew.addEventListener("click", function () {
+  let box = document.getElementById("new");
+  if (box.style.visibility == "hidden") {
+    box.style.visibility = "visible";
+    box.style.animation = "in 1s";
+  } else {
+    box.style.animation = "out 1s";
+    setTimeout(() => {
+      box.style.visibility = "hidden";
+    }, 1000);
+  }
+});
+
 //start game
 let startBtn = document.getElementById("start");
 let howTo = document.getElementById("howToPlay");
@@ -24,6 +40,7 @@ const missingDiv = document.getElementById("guessingWord");
 const startGame = () => {
   keyboard.style.visibility = "visible";
   howTo.style.visibility = "hidden";
+  whatsNew.style.visibility = "hidden";
   document.getElementById("lives").style.visibility = "visible";
   let startAudio = new Audio("start.wav");
   startAudio.play();
@@ -34,6 +51,7 @@ const startGame = () => {
     missingDiv.classList.add("guessingWord");
     blankDiv.classList.add("blankDiv");
     blankBtn.classList.add("blankBtn");
+    blankBtn.id = "blankBtn";
     missingDiv.appendChild(blankDiv);
     blankDiv.appendChild(blankBtn);
     blankBtn.innerHTML = "_";
@@ -59,6 +77,7 @@ const myFun = () => {
         let element = this;
         element.innerHTML = "";
         element.setAttribute("disabled", "disabled");
+        this.style.animation = "keyYesAni 1s ease";
         element.classList.add("keyYes");
         let correct = new Audio("correct.mp3");
         correct.play();
@@ -97,6 +116,7 @@ const myFun = () => {
         if (this.name === answer[m]) {
           answers[m].innerHTML = this.name;
           answers[m].classList.add("blankBtn");
+          answers[m].style.animation = "ans 1s ease";
           newArr.push(answer[m]);
           console.log(newArr);
           //win
@@ -105,11 +125,11 @@ const myFun = () => {
               if (newArr.includes(element)) {
                 let win = new Audio("win.wav");
                 win.play();
-                hide();
                 setTimeout(function () {
+                  hide();
                   const card = document.getElementById("win");
                   card.style.visibility = "visible";
-                }, 500);
+                }, 1200);
               }
             });
           }
@@ -126,6 +146,34 @@ function reload() {
   location.reload();
 }
 
+start();
+myFun();
+
+/*
+//darkMode
+const darModeToggle = document.getElementById("darkModeToggle");
+const ball = document.getElementById("ball");
+ball.style.margin = "auto auto auto 3px";
+
+const on = () => {
+  document.body.classList.add("darkMode");
+};
+const off = () => {
+  document.body.classList.remove("darkMode");
+};
+darModeToggle.addEventListener("click", function () {
+  if (ball.style.margin === "auto auto auto 3px") {
+    ball.style.animation = "ball 0.5s ease";
+    ball.style.margin = "auto 3px auto auto";
+    darModeToggle.style.backgroundColor = "white";
+    on();
+  } else if (ball.style.margin === "auto 3px auto auto") {
+    ball.style.margin = "auto auto auto 3px";
+    darModeToggle.style.backgroundColor = "black";
+    off();
+  }
+});
+*/
 //keyboard
 /*
 document.addEventListener('keypress', (event) => {
@@ -137,5 +185,3 @@ document.addEventListener('keypress', (event) => {
 //test
 
 //call functions
-start();
-myFun();
