@@ -45,14 +45,17 @@ main {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  justify-content: space-between;
+  align-items: center;
 }
-#topic {
+/* #topic {
   font-family: var(--topicFont);
   color: var(--titleColor);
   justify-self: flex-start;
   width: fit-content;
   align-self: center;
+} */
+#logo {
+  width: 150px;
 }
 span {
   font-size: 12px;
@@ -161,6 +164,8 @@ span {
 #lives {
   font-family: ubuntu;
   color: var(--letterColor);
+  position: absolute;
+  top: 150px;
 }
 #start {
   background: none;
@@ -411,11 +416,11 @@ li {
     max-width: fit-content;
     margin-bottom: 80px;
   }
- .end {
-    width: 250px;
-    height: 200px;
+  .end {
+    width: 200px;
+    height: 300px;
     font-size: 10px;
-    left: 17%;
+    left: 23.5%;
   }
   .endBtn {
     width: fit-content;
