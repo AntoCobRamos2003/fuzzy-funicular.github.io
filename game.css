@@ -374,17 +374,17 @@ li {
     background-color: var(--background);
     position: fixed;
   }
- #update {
-    right: 20px;
+  #update {
+    right: 25px;
     top: 40px;
     font-size: 14px;
     z-index: 100;
   }
   #new {
-    right: 35px;
-    top: 90px;
-    width: 130px;
-    font-size: 12px;
+    right: 5px;
+    top: 60px;
+    width: 120px;
+    font-size: 11px;
     z-index: 100;
   }
   @keyframes in {
@@ -392,7 +392,7 @@ li {
       right: -400px;
     }
     to {
-      right: 35px;
+      right: 15px;
     }
   }
   #howToPlay {
