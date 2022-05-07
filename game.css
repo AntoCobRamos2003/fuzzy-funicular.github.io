@@ -374,9 +374,10 @@ li {
     background-color: var(--background);
     position: fixed;
   }
-  #update {
-    right: 50px;
-    top: 70px;
+ #update {
+    right: 20px;
+    top: 40px;
+    font-size: 14px;
     z-index: 100;
   }
   #new {
