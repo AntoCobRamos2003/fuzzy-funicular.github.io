@@ -11,11 +11,11 @@ let answers = [];
 let newArr = [];
 
 //console log for test
-/*
+
 console.log(answer);
 console.log(numOfBlanks);
 console.log(rNum);
-*/
+
 //console.log(letterInWord);
 
 let whatsNew = document.getElementById("update");
